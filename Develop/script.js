@@ -24,6 +24,8 @@ function writePassword() {
   var uppercase = prompt("Would you like your password to include uppercase characters?")
     if (uppercase === "yes") {
       alert("Your password will contain uppercase characters.")
+    } else if (lowerecase === "no" && uppercase === "no") {
+      alert("Error: Must select at least lowercase or uppercase characters.")
     } else if (uppercase === "no") {
       alert("Your password will not contain any uppercase characters.")
     } else {
