@@ -9,7 +9,7 @@ function writePassword() {
     if (passwordLength < 8 || passwordLength > 128) {
       alert("Error: Passwords must be between 8 and 128 characters long.");
     } else {
-      confirm("your password will be " + passwordLength + " characters long.");
+      alert("your password will be " + passwordLength + " characters long.");
     }
   
   var lowerecase = prompt("Would you like your password to include lowercase characters?")
