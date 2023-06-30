@@ -4,51 +4,46 @@ var generateBtn = document.querySelector("#generate");
 
 
 // Write password to the #password input
-function writePassword() {
+function passwordConditions() {
   var passwordLength = prompt("How many characters long would you like your password to be?");
-    if (passwordLength < 8 || passwordLength > 128) {
-      alert("Error: Passwords must be between 8 and 128 characters long.");
-    } else {
-      alert("your password will be " + passwordLength + " characters long.");
-    }
-  
-  var lowerecase = prompt("Would you like your password to include lowercase characters?")
-    if (lowerecase === "yes") {
-      alert("Your password will contain lowercase characters.")
-    } else if (lowerecase === "no") {
-      alert("Your password will not contain any lowercase characters.")
-    } else {
-      alert("Error: answer was not a yes or no.")
-    }
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("Error: Passwords must be between 8 and 128 characters long.");
+  } else {
+    alert("your password will be " + passwordLength + " characters long.");
+  }
 
-  var uppercase = prompt("Would you like your password to include uppercase characters?")
-    if (uppercase === "yes") {
-      alert("Your password will contain uppercase characters.")
-    } else if (lowerecase === "no" && uppercase === "no") {
-      alert("Error: Must select at least lowercase or uppercase characters.")
-    } else if (uppercase === "no") {
-      alert("Your password will not contain any uppercase characters.")
-    } else {
-      alert("Error: answer was not a yes or no.")
-    }
+  var lowercase = confirm("would you like lowercase letters in your password?")
+  if (lowercase === true) {
+    alert("Your password will contain lowercase characters.");
+  } else {
+    alert("Your password will not contain any lowercase characters.");
+  }
 
-  var numeric = prompt("Would you like your password to include numeric characters?")
-    if (numeric === "yes") {
-      alert("Your password will contain numeric characters.")
-    } else if (numeric === "no") {
-      alert("Your password will not contain any numeric characters.")
-    } else {
-      alert("Error: answer was not a yes or no.")
-    }
+  var uppercase = confirm("would you like uppercase letters in your password?")
+  if (uppercase === true) {
+    alert("Your password will contain uppercase characters.");
+  } else {
+    alert("Your password will not contain any uppercase characters.");
+  }
 
-  var special = prompt("Would you like your password to include special characters? (ie. !%#$&)")
-    if (special === "yes") {
-      alert("Your password will contain special characters.")
-    } else if (special === "no") {
-      alert("Your password will not contain any special characters.")
-    } else {
-      alert("Error: answer was not a yes or no.")
-    }
+  if (lowercase === false && uppercase === false) {
+    alert("Error: must have at least lowercase or uppercase characters.")
+    return
+  }
+
+  var numeric = confirm("would you like numeric letters in your password?")
+  if (numeric === true) {
+    alert("Your password will contain numeric characters.");
+  } else {
+    alert("Your password will not contain any numeric characters.");
+  }
+
+  var special = confirm("would you like special letters in your password? (ie. !@#$%^&)")
+  if (special === true) {
+    alert("Your password will contain special characters.");
+  } else {
+    alert("Your password will not contain any special characters.");
+  }
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -58,4 +53,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", passwordConditions());
