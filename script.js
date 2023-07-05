@@ -56,7 +56,6 @@ function generatePassword() {
     alert("Your password will not contain any special characters.");
   }
 
-
   // Calls upon previously defined variables and test if their boolean value is true. If it is true, the array with the correlated character type gets added to the pass[] array.
   if (lowercase === true) {
     pass = pass.concat(lowerCaseChars)
@@ -74,7 +73,6 @@ function generatePassword() {
     pass = pass.concat(specialChars)
   }
 
-
   // This console log is what is within the pass[] array after user input. This array contains every possible character that could be generated in the final password
   console.log(pass)
 
@@ -86,7 +84,6 @@ function generatePassword() {
   // Returns whats inside the finalPassword[] array as a single string without commas.
   return finalPassword.join("")
 }
-
 
 // function writePassword() is called when the button is clicked
 function writePassword() {
